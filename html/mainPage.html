@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script defer src="/javascripts/loader.js"></script>
+    <script defer type="module" src="/firebase/firebaseInit.js"></script>
+    <script defer type="module" src="/firebase/firebaseMainPage.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/style/main.css">
+    <title>Moodt Journal</title>
+</head>
+<body onload="loader()">
+    <!--* Loader -->
+    <div class="d-flex justify-content-center">
+        <div class="spinner-grow bg-primary mt-5" role="status" id="loader" style="width: 3rem; height: 3rem;"></div>
+    </div>
+    <!--* Loader -->
+    <!-- ! Main Content -->
+        <div style="display:none;" id="allContent" class="animate">
+
+            <!-- As a heading -->
+            <nav class="navbar navbar-light bg-light">
+                <div class="container-fluid">
+                <span class="navbar-brand mb-0 h1">Moodt Journal</span>
+                <button type="button" class="btn btn-primary" id="signOutBtn">Sign Out</button>
+                </div>
+            </nav>
+
+            <h1 class="display-3">HomePage</h1>
+        </div>
+    <!-- ! Main Content -->
+</body>
+</html>
