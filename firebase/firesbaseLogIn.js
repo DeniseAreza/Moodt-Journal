@@ -20,7 +20,7 @@ function signIn () {
                     window.location.href = "/html/mainPage.html";
                     console.log("Logged in");
                 }, function() {
-                    $('#errorAlert').show();
+                    $('#errorAlertLogin').show();
                     console.log('failed to log in');
                 })
     
