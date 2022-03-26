@@ -18,7 +18,7 @@ function signUp () {
                     window.location.href = "/html/mainPage.html";
                     console.log("Created User");
                 }, function() {
-                    $('#errorAlert').show();
+                    $('#errorAlertSignUp').show();
                     console.log('failed to create user');
                 })
     

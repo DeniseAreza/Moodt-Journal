@@ -91,10 +91,10 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <div class="needs-validation" novalidate>
+              <form class="needs-validation" novalidate>
                 <!-- * Alert triggers -->
-                <div class="alert alert-danger collapse" role="alert" id="errorAlert">
-                  <strong>Error!</strong> Your Email and Password are not correct.
+                <div class="alert alert-danger collapse" role="alert" id="errorAlertSignUp">
+                  <strong>Error!</strong> Your password must be more than 6 characters.
                 </div>
                 <div class="alert alert-success collapse" role="alert" id="successAlert">
                   You are now logged in.
@@ -132,7 +132,7 @@
                 <!-- Buttons -->
                 <button  type="button" class="btn btn-primary" id="signUp">Submit</button>
                 <!-- Buttons -->
-              </div>
+              </form>
             </div>
         </div>
         </div>
