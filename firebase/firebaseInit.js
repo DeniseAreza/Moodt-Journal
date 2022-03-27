@@ -68,7 +68,7 @@ export function signUpUser (email, password) {
 
 // * for handling existing users
 export function loginUser (email, password) {
-  return new Promise (function (resolve, reject){
+  return new Promise (function (resolve, reject){ 
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in 
