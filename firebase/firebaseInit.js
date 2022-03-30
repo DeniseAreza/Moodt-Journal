@@ -48,6 +48,8 @@ export function checkActiveUser() {
 // * for handling new users
 $('#signUp').click(signUpUser);
 function signUpUser () {
+  let firstName = $('#signup_firstName').val();
+  let lastName = $('#signup_lastName').val();
   let email = $('#signup_Email').val();
   let password = $('#signup_Password').val();
   console.log("Load")
@@ -57,11 +59,13 @@ function signUpUser () {
         const user = await userCredential.user;
       
         await set(ref(database, '/users/' + user.uid), {
-          email: email
+          email: email,
+          firstName: firstName,
+          lastName: lastName
         })
 
         await redirect();
-        
+
         console.log("Created User"); 
         // ...
       })
