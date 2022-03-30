@@ -4,6 +4,7 @@ import * as FirebaseInit from '/firebase/firebaseInit.js';
 FirebaseInit.checkActiveUser()
             .then((user) => {
                 console.log(user.email);
+                console.log(user.uid)
             }, function() {
                 console.log('No user exists'); 
             });

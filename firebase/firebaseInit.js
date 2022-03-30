@@ -3,8 +3,8 @@
 // Import the functions you need from the SDKs you need
 // wag mo na iimport
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-app.js";
-import {getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, browserSessionPersistence  } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js";
-import { getDatabase} from "https://www.gstatic.com/firebasejs/9.6.9/firebase-database.js"
+import {getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut} from "https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js";
+import { getDatabase, set, ref, get} from "https://www.gstatic.com/firebasejs/9.6.9/firebase-database.js"
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -25,7 +25,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const database = getDatabase(app);
-
 // ! ALl queries
 // * check active user
 export function checkActiveUser() {
@@ -47,22 +46,32 @@ export function checkActiveUser() {
 // *
 
 // * for handling new users
-export function signUpUser (email, password) {
-  return new Promise(function(resolve, reject){
+$('#signUp').click(signUpUser);
+function signUpUser () {
+  let email = $('#signup_Email').val();
+  let password = $('#signup_Password').val();
+  console.log("Load")
     createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
+      .then(async(userCredential) => {
         // Signed in 
-        const user = userCredential.user;
-        resolve();
+        const user = await userCredential.user;
+      
+        await set(ref(database, '/users/' + user.uid), {
+          email: email
+        })
+
+        await redirect();
+        
+        console.log("Created User"); 
         // ...
       })
       .catch(function(error) {
         const errorCode = error.code;
         const errorMessage = error.message;
-        reject();
+        console.log('failed to create user');
+        $('#errorAlertSignUp').show();
         // ..
       });
-    })  
 }
 // *
 
@@ -96,4 +105,8 @@ export function signOutUser() {
       reject();
     });
   })
+}
+
+function redirect() {
+  window.location.href = '/html/mainPage.html';
 }
