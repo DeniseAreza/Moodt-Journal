@@ -25,6 +25,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const database = getDatabase(app);
+
 // ! ALl queries
 // * check active user
 export function checkActiveUser() {
@@ -58,7 +59,7 @@ function signUpUser () {
         // Signed in 
         const user = await userCredential.user;
       
-        await set(ref(database, '/users/' + user.uid), {
+        await set(ref(database, '/users/' + user.uid +'/Account'), {
           email: email,
           firstName: firstName,
           lastName: lastName

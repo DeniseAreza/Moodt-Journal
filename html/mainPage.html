@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
     <script defer src="/javascripts/loader.js"></script>
     <script defer type="module" src="/firebase/firebaseInit.js"></script>
     <script defer type="module" src="/firebase/firebaseMainPage.js"></script>
@@ -44,7 +44,47 @@
                 </div>
               </nav>
 
-            <h1 class="display-3">HomePage</h1>
+              <h1 style="text-align: center;">Homepage</h1>
+              <!-- Carousel -->
+              <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="/bundles/undraw_mindfulness_scgo.svg" class="d-block w-100" alt="..." style="height: 300px;">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/bundles/undraw_stability_ball_b-4-ia.svg" class="d-block w-100" alt="..." style="height: 300px;">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/bundles/undraw_wandering_mind_re_x2a3.svg" class="d-block w-100" alt="..." style="height: 300px;">
+                  </div>
+                </div>
+              </div>
+              <!-- carousel -->
+              <!-- Cards -->
+              <div class="wrapper-horizontal">
+                <div class="horizontal">
+                  <div class="card  m-5" style="width: 18rem;">
+                    <img src="/bundles/undraw_joyride_re_968t.svg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Mood Journal</h5>
+                      <p class="card-text">An emotion journal allows you to record your feelings over several days or weeks and then notice patterns or trends.</p>
+                      <a href="#" class="btn btn-primary">Proceed</a>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="horizontal">
+                  <div class="card  m-5" style="width: 18rem;">
+                    <img src="/bundles/undraw_i_can_fly_-7-egl.svg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Automatic Thought Journal</h5>
+                      <p class="card-text">A thought record is a Cognitive Behavioral Therapy tool to help identify automatic thoughts that are creating problematic moods.</p>
+                      <a href="/html/automaticThoughtJournal.html" class="btn btn-primary">Proceed</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Cards -->
         </div>
     <!-- ! Main Content -->
 </body>

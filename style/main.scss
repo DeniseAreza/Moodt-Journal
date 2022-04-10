@@ -21,6 +21,8 @@ html{
   scroll-behavior: smooth;
   background-color: #fefefe;
 }
+
+
 // * Scroll behavior
 
 // * Loader: For smooth animation after loading
@@ -71,4 +73,17 @@ h1, h2, h3, h4, h5 {
 
 input{
   font-family: tommy;
+}
+
+// * alignments
+.horizontal{
+  display: inline-block;
+}
+
+.wrapper-horizontal{
+  text-align: center;
+}
+
+.text-center{
+  text-align: center;
 }
