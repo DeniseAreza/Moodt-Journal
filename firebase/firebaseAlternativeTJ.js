@@ -4,7 +4,7 @@
 // wag mo na iimport
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-app.js";
 import {getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut} from "https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js";
-import { getDatabase, ref, set, push} from "https://www.gstatic.com/firebasejs/9.6.9/firebase-database.js"
+import { getDatabase, ref, set, push, onValue, onChildAdded} from "https://www.gstatic.com/firebasejs/9.6.9/firebase-database.js"
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -36,27 +36,25 @@ function redirectATJ() {
 }
 
 // * Save automatic thought journal entry
-$('#ATJSubmit').click(insertATJEntry);
-function insertATJEntry() {
+$('#saveAlternativeJournalEntry').click(insertAlternativeJEntry);
+function insertAlternativeJEntry() {
     FirebaseInit.checkActiveUser()
                 .then((user) => {
-                    let triggeringEvent = $('#triggeringEvent').val();
-                    let automaticThoughts = $('#automaticThoughts').val();
-                    let automaticFeelings = $('#automaticFeelings').val();
-                    let automaticBehavior = $('#automaticBehavior').val();
+                    let alternativeThoughts = $('#alternativeThoughts').val();
+                    let alternativeFeelings = $('#alternativeFeelings').val();
+                    let alternativeBehavior = $('#alternativeBehavior').val();
 
                     // date
                     var today = new Date();
                     var date = (today.getMonth()+1)+'-'+today.getDate()+'-'+today.getFullYear();
 
-                    const postListRef = ref(database, 'users/' + user.uid +'/ATJEntries');
+                    const postListRef = ref(database, 'users/' + user.uid +'/AlternativeJournalEntries');
                     const newPostRef = push(postListRef);
                     set(newPostRef, {
                         date: date,
-                        triggeringEvent: triggeringEvent,
-                        automaticThoughts: automaticThoughts,
-                        automaticFeelings: automaticFeelings,
-                        automaticBehavior:automaticBehavior
+                        alternativeThoughts: alternativeThoughts,
+                        alternativeFeelings: alternativeFeelings,
+                        alternativeBehavior:alternativeBehavior
                     });
 
                     alert("Successfully Uploaded")
@@ -66,6 +64,30 @@ function insertATJEntry() {
 }
 // * Save automatic thought journal entry
 
+// * Retrieve ATJ as reference
+FirebaseInit.checkActiveUser()
+                .then((user) => {
+                    const ATJRef = ref(database, 'users/' + user.uid  + '/ATJEntries');
+                    onChildAdded(ATJRef, (data) => {
+                        var automaticThoughts = data.val().automaticThoughts; 
+                        var automaticFeelings = data.val().automaticFeelings;
+                        var automaticBehavior = data.val().automaticBehavior;
+                        document.getElementById('automaticThought').innerHTML = automaticThoughts;
+                        document.getElementById('automaticFeeling').innerHTML = automaticFeelings;
+                        document.getElementById('automaticBehavior').innerHTML = automaticBehavior;
+                      });
+                }, function() {
+                    console.log('No user exists'); 
+                });
+// * Retrieve  ATJ as reference
+
+// * return to homepage
+$('#returnToHomePage').click(returnToHomePage);
+function returnToHomePage() {
+    window.location.href = '/html/mainPage.html';
+}
+
+// * return to homepage
 // * Log out
 $('#signOutBtn').click(logOutClicked);
 function logOutClicked() {

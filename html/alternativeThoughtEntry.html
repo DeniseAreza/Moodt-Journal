@@ -7,6 +7,7 @@
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
     <script defer src="/javascripts/loader.js"></script>
     <script defer type="module" src="/firebase/firebaseInit.js"></script>
+    <script defer type="module" src="/firebase/firebaseAlternativeTJ.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="icon" href="/bundles/undraw_mindfulness_scgo.svg">
     <link rel="stylesheet" href="/style/main.css">
@@ -49,64 +50,59 @@
             <!-- Accordion -->
             <div class="accordion accordion-flush" id="accordionFlushExample">
                 <div class="accordion-item">
-                  <h2 class="accordion-header" id="flush-headingOne">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                  <h2 class="accordion-header" id="flush-headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
                       First Question
                     </button>
                   </h2>
-                  <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">What was your triggering event?</div>
-                    <div class="form-floating">
-                        <textarea class="form-control" placeholder="Leave a comment here" id="triggeringEvent" style="height: 100px" required></textarea>
-                        <label for="triggeringEvent">Triggering Event</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="flush-headingTwo">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                      Second Question
-                    </button>
-                  </h2>
                   <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">What were your automatic thoughts?</div>
+                    <div class="accordion-body">What were your alternative thoughts?</div>
+                    <div class="accordion-body">
+                      <p>Automatic Thought: <span id="automaticThought"></span></p>
+                    </div>
                     <div class="form-floating">
-                        <textarea class="form-control" placeholder="Leave a comment here" id="automaticThoughts" style="height: 100px" required></textarea>
-                        <label for="automaticThoughts">Automatic Thoughts</label>
+                        <textarea class="form-control" placeholder="Leave a comment here" id="alternativeThoughts" style="height: 100px" required></textarea>
+                        <label for="alternativeThoughts">Alternative Thoughts</label>
                     </div>
                   </div>
                 </div>
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="flush-headingThree">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                      Third Question
+                      Second Question
                     </button>
                   </h2>
                   <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">What were your automatic feelings?</div>
+                    <div class="accordion-body">What were your alternative feelings?</div>
+                    <div class="accordion-body">
+                      <p>Automatic Feeling: <span id="automaticFeeling"></span></p>
+                    </div>
                     <div class="form-floating">
-                        <textarea class="form-control" placeholder="Leave a comment here" id="automaticFeelings" style="height: 100px" required></textarea>
-                        <label for="automaticFeelings">Automatic Feelings</label>
+                        <textarea class="form-control" placeholder="Leave a comment here" id="alternativeFeelings" style="height: 100px" required></textarea>
+                        <label for="alternativeFeelings">Alternative Feelings</label>
                     </div>
                   </div>
                 </div>
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingThree">
                       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseThree">
-                        Fourth Question
+                        Third Question
                       </button>
                     </h2>
                     <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                      <div class="accordion-body">What was your automatic behavior?</div>
+                      <div class="accordion-body">What was your alternative behavior?</div>
+                      <div class="accordion-body">
+                        <p>Automatic Behavior: <span id="automaticBehavior"></span></p>
+                      </div>
                       <div class="form-floating">
-                          <textarea class="form-control" placeholder="Leave a comment here" id="automaticBehavior" style="height: 100px" required></textarea>
-                          <label for="automaticBehavior">Automatic Behavior</label>
+                          <textarea class="form-control" placeholder="Leave a comment here" id="alternativeBehavior" style="height: 100px" required></textarea>
+                          <label for="alternativeBehavior">Alternative Behavior</label>
                       </div>
                     </div>
                 </div>
 
                 <div class="text-center">
-                    <button type="button" class="btn btn-primary m-3" id="">Save Alternative Thought Journal</button>
+                    <button type="button" class="btn btn-primary m-3" id="saveAlternativeJournalEntry">Save Alternative Thought Journal</button>
                 </div>
 
                 <div class="text-center">
